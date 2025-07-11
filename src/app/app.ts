@@ -10,9 +10,9 @@ const app: Application = express();
 app.use(express.json());
 
 app.use("/metta",router)
-app.use("/",facebookRouter)
-app.use("/",youtubeRouter)
-app.use("/",ImageRouter)
+app.use("/facebook",facebookRouter)
+app.use("/youtube",youtubeRouter)
+app.use("/image",ImageRouter)
 
 
 app.get("/", (req: Request, res: Response) => {
