@@ -7,9 +7,14 @@ const port = 3000;
 async function main() {
   try {
     // Connect Mongodb
-    await mongoose.connect(
-      "mongodb+srv://NoteApp:4LmlGoSh3LQZttua@cluster0.njtaw.mongodb.net/Metta-Dhaman-app?retryWrites=true&w=majority&appName=Cluster0"
-    );
+     const mongoUri = process.env.MONGODBURI;
+
+  if (!mongoUri) {
+    throw new Error('MONGODBURI not set in .env');
+  }
+
+  await mongoose.connect(mongoUri);
+
     console.log("Connected MongoDB!!!");
     server = app.listen(port, () => {
       console.log("Server listen on 3000");

@@ -82,7 +82,7 @@ router.patch("/update-blog/:id", async (req: Request, res: Response) => {
 });
 
 // Delete Blog 
-router.delete("/blog/:id", async (req: Request, res: Response) => {
+router.delete("/delete-blog/:id", async (req: Request, res: Response) => {
   try {
     
     const id =req.params.id

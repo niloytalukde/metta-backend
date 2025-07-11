@@ -3,7 +3,9 @@ import { router } from "./Controller/blog.controller";
 import { facebookRouter } from "./Controller/facebook.controller";
 import { youtubeRouter } from "./Controller/youtube.controller";
 import { ImageRouter } from "./Controller/image.controller";
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app: Application = express();
 app.use(express.json());
 
