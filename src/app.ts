@@ -1,8 +1,8 @@
 import express, { Application, Request, Response } from "express";
-import { router } from "./Controller/blog.controller";
-import { facebookRouter } from "./Controller/facebook.controller";
-import { youtubeRouter } from "./Controller/youtube.controller";
-import { ImageRouter } from "./Controller/image.controller";
+import { router } from "./app/Controller/blog.controller";
+import { facebookRouter } from "./app/Controller/facebook.controller";
+import { youtubeRouter } from "./app/Controller/youtube.controller";
+import { ImageRouter } from "./app/Controller/image.controller";
 import dotenv from 'dotenv';
 
 dotenv.config();
