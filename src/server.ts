@@ -17,7 +17,7 @@ async function main() {
   await mongoose.connect(mongoUri);
 
     console.log("Connected MongoDB!!!");
-    server = app.listen(port, () => {
+    server = app.listen(process.env.PORT, () => {
       console.log("Server listen on 3000");
     });
   } catch (error) {
