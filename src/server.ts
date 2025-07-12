@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import app from "./app";
 
 let server: Server;
-const port = 3000;
+const port = process.env.PORT ||3000;
 async function main() {
   try {
     // Connect Mongodb
@@ -17,8 +17,8 @@ async function main() {
   await mongoose.connect(mongoUri);
 
     console.log("Connected MongoDB!!!");
-    server = app.listen(process.env.PORT, () => {
-      console.log("Server listen on 3000");
+    server = app.listen(port, () => {
+      console.log("Server is running");
     });
   } catch (error) {
     console.log(error);
