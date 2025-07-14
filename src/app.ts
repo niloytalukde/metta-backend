@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(cors({
-  origin: 'https://metta-backend.vercel.app', 
+  origin: ['https://metta-backend.vercel.app',"http://localhost:5173/"], 
   credentials: true, 
 }));
 
