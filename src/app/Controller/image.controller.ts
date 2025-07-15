@@ -8,6 +8,7 @@ export const ImageRouter =express.Router()
 ImageRouter.post("/create-image-link", async (req: Request, res: Response) => {
   try {
     const imageUrl = req.body;
+    console.log(imageUrl);
     const url = await Image.create(imageUrl);
     await url.save();
     res.status(201).json({

@@ -7,7 +7,7 @@ export const router =express.Router()
 // create a blog
 router.post("/create-blog", async (req: Request, res: Response) => {
   try {
-    const {blogData} = req.body;
+    const blogData = req.body;
     const blog = await Blog.create(blogData);
     await blog.save();
     res.status(201).json({

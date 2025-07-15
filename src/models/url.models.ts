@@ -13,7 +13,7 @@ const youtubeModel=new Schema({
 export const Youtube=model("Youtube",youtubeModel)
 
 const imageModel=new Schema({
-    facebookUrl:String
+    image:String
 })
 
 export const Image=model("Image",imageModel)
