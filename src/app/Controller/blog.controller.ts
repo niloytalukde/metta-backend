@@ -42,6 +42,24 @@ router.get("/blogs", async (req: Request, res: Response) => {
   }
 });
 
+
+// only 4 blog show 
+router.get("/home/blogs", async (req: Request, res: Response) => {
+  try {
+    const blogs = await Blog.find().limit(4);
+    res.status(200).json({
+      success: true,
+      blogs,
+      message: "Get all blogs",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
+});
 // get single blog 
 router.get("/blog/:id", async (req: Request, res: Response) => {
   try {
