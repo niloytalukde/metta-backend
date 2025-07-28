@@ -27,7 +27,7 @@ youtubeRouter.post("/create-youtube-link", async (req: Request, res: Response) =
 //  get all Youtube Url
 youtubeRouter.get("/youtube-links", async (req: Request, res: Response) => {
   try {
-    const YUrl = await Youtube.find();
+    const YUrl = await Youtube.find().limit(6);
     res.status(200).json({
       success: true,
     YUrl,
