@@ -20,6 +20,7 @@ app.use("/metta",router)
 app.use("/facebook",facebookRouter)
 app.use("/youtube",youtubeRouter)
 app.use("/image",ImageRouter)
+app.use("/news",router)
 
 
 app.get("/", (req: Request, res: Response) => {

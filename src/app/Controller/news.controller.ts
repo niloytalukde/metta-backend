@@ -6,12 +6,12 @@ export const router = express.Router();
 // create a blog
 router.post("/create-news", async (req: Request, res: Response) => {
   try {
-    const blogData = req.body;
-    const news = await News.create(blogData);
+    const newsData = req.body;
+    const news = await News.create(newsData);
     await news.save();
     res.status(201).json({
       success: true,
-      blog: news,
+      news,
       message: "News created Successfully",
     });
   } catch (error) {
