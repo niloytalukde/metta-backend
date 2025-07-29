@@ -7,6 +7,7 @@ export const router = express.Router();
 router.post("/create-news", async (req: Request, res: Response) => {
   try {
     const newsData = req.body;
+    console.log(newsData);
     const news = await News.create(newsData);
     await news.save();
     res.status(201).json({
