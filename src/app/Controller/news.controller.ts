@@ -1,10 +1,9 @@
 import express, { Request, Response } from "express";
 import { News } from "../../models/news.Model";
 
-export const router = express.Router();
-
+export const newsRouter = express.Router();
 // create a blog
-router.post("/create-news", async (req: Request, res: Response) => {
+newsRouter.post("/create-news", async (req: Request, res: Response) => {
   try {
     const newsData = req.body;
     console.log(newsData);
@@ -25,7 +24,7 @@ router.post("/create-news", async (req: Request, res: Response) => {
 });
 
 //  get all blogs
-router.get("/news", async (req: Request, res: Response) => {
+newsRouter.get("/news", async (req: Request, res: Response) => {
   try {
     const news = await News.find();
     res.status(200).json({
@@ -42,7 +41,7 @@ router.get("/news", async (req: Request, res: Response) => {
   }
 });
 // only 4 News show
-router.get("/home/News", async (req: Request, res: Response) => {
+newsRouter.get("/home/News", async (req: Request, res: Response) => {
   try {
     const blogs = await News.find().limit(4);
     res.status(200).json({
@@ -59,7 +58,7 @@ router.get("/home/News", async (req: Request, res: Response) => {
   }
 });
 // get single blog
-router.get("/news/:id", async (req: Request, res: Response) => {
+newsRouter.get("/news/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const blog = await News.findById(id);
@@ -77,7 +76,7 @@ router.get("/news/:id", async (req: Request, res: Response) => {
   }
 });
 // Update News
-router.patch("/update-news/:id", async (req: Request, res: Response) => {
+newsRouter.patch("/update-news/:id", async (req: Request, res: Response) => {
   try {
     const UpdateNews = req.body;
     const id = req.params.id;
@@ -97,7 +96,7 @@ router.patch("/update-news/:id", async (req: Request, res: Response) => {
   }
 });
 // Delete News
-router.delete("/delete-news/:id", async (req: Request, res: Response) => {
+newsRouter.delete("/delete-news/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const news = await News.findByIdAndDelete(id);
